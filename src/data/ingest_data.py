@@ -1,9 +1,8 @@
 """
 Módulo de ingestión de datos.
 -------------------------------------------------------------------------------
-
+En este módulo se ingresan los datos externos a la capa landing del data lake
 """
-
 
 def ingest_data():
     """Ingeste los datos externos a la capa landing del data lake.
@@ -15,6 +14,7 @@ def ingest_data():
     """
     raise NotImplementedError("Implementar esta función")
 
+    
 
 if __name__ == "__main__":
     import doctest
