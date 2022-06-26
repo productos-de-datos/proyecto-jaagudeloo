@@ -28,36 +28,36 @@ def transform_data():
 
     import pandas as pd
 
-    contenido_landing = os.listdir('src/data/data_lake/landing')
+    contenido_landing = os.listdir('data_lake/landing')
     anio_inicial = 1995
     anio_final = 2021
 
     for elemento in range(anio_inicial, anio_final + 1, 1):
         
-        archivo = pd.read_excel(f'src/data/data_lake/landing/{contenido_landing[elemento-anio_inicial]}', skiprows=3)
+        archivo = pd.read_excel(f'data_lake/landing/{contenido_landing[elemento-anio_inicial]}', skiprows=3)
 
         if archivo.columns[0] == 'Fecha':
             if archivo.shape[1] > 25:
                 archivo = archivo.iloc[:, 0:25]         
         else:
-            archivo = pd.read_excel(f'src/data/data_lake/landing/{contenido_landing[elemento-1995]}', skiprows=2)
+            archivo = pd.read_excel(f'data_lake/landing/{contenido_landing[elemento-1995]}', skiprows=2)
             if archivo.columns[0] == 'Fecha':
                 if archivo.shape[1] > 25:
                     archivo = archivo.iloc[:, 0:25]
             else:
-                archivo = pd.read_excel(f'src/data/data_lake/landing/{contenido_landing[elemento-1995]}', skiprows=1)
+                archivo = pd.read_excel(f'data_lake/landing/{contenido_landing[elemento-1995]}', skiprows=1)
                 if archivo.columns[0] == 'Fecha':
                     if archivo.shape[1] > 25:
                         archivo = archivo.iloc[:, 0:25]
                 else:
-                    archivo = pd.read_excel(f'src/data/data_lake/landing/{contenido_landing[elemento-1995]}', skiprows=0)
+                    archivo = pd.read_excel(f'data_lake/landing/{contenido_landing[elemento-1995]}', skiprows=0)
                     if archivo.columns[0] == 'Fecha':
                         if archivo.shape[1] > 25:
                             archivo = archivo.iloc[:, 0:25]                
 
         archivo['Fecha'] = pd.to_datetime(archivo['Fecha'])
         archivo.columns = ['Fecha', 'H00', 'H01', 'H02', 'H03', 'H04', 'H05', 'H06', 'H07', 'H08', 'H09', 'H10', 'H11', 'H12', 'H13', 'H14', 'H15', 'H16', 'H17', 'H18', 'H19', 'H20', 'H21', 'H22', 'H23']
-        archivo.to_csv(f'src/data/data_lake/raw/{elemento}.csv', header = True, index = False)
+        archivo.to_csv(f'data_lake/raw/{elemento}.csv', header = True, index = False)
 
 if __name__ == "__main__":
     import doctest
