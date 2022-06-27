@@ -31,7 +31,7 @@ def make_features():
     precios_diarios['fecha'] = pd.to_datetime(precios_diarios['fecha'])
     precios_diarios['dia_mes'] = precios_diarios['fecha'].dt.day
     precios_diarios['dia_mes_binario'] = (precios_diarios['dia_mes']>20).astype(int)
-    precios_diarios.to_csv('src/data/data_lake/business/features/precios_diarios.csv', index = False)
+    precios_diarios.to_csv('data_lake/business/features/precios_diarios.csv', index = False)
 
 
 if __name__ == "__main__":
