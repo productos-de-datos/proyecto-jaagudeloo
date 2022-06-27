@@ -22,7 +22,7 @@ def make_daily_prices_plot():
     import pandas as pd
     import matplotlib.pyplot as plt
 
-    precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
+    precios_diarios = pd.read_csv(f'data_lake/business/precios-diarios.csv')
     precios_diarios['fecha'] = pd.to_datetime(precios_diarios['fecha'])
     x = precios_diarios.fecha
     y = precios_diarios.precio
@@ -32,11 +32,9 @@ def make_daily_prices_plot():
     plt.ylabel('Precio en bolsa')
     plt.title('Promedios Diarios')
     plt.legend()
-    plt.savefig('data_lake/business/reports/figures/daily_prices.png')
+    plt.savefig(f'data_lake/business/reports/figures/daily_prices.png')
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-
-    make_daily_prices_plot()
