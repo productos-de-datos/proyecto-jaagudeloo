@@ -23,7 +23,7 @@ def make_daily_prices_plot():
     import pandas as pd
     import matplotlib.pyplot as plt
 
-    os.chdir("./")
+    os.chdir('./')
     precios_diarios = pd.read_csv(f'data_lake/business/precios-diarios.csv')
     precios_diarios['fecha'] = pd.to_datetime(precios_diarios['fecha'])
     x = precios_diarios.fecha
