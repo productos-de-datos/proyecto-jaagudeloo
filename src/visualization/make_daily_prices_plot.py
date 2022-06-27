@@ -19,10 +19,9 @@ def make_daily_prices_plot():
 
     """
     #raise NotImplementedError("Implementar esta función")
-    import os
     import pandas as pd
 
-    precios_diarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
+    precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
     fig_precios_diarios = precios_diarios.plot(x = 'fecha', y = 'precio', xlabel = 'fecha', ylabel = 'precio', kind = 'line', figsize = (16,8), grid = True, title = 'Promedios Diarios').get_figure()
     fig_precios_diarios.savefig('data_lake/business/reports/figures/daily_prices.png')
 
