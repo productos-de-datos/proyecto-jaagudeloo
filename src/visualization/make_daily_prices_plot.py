@@ -20,11 +20,19 @@ def make_daily_prices_plot():
     """
     #raise NotImplementedError("Implementar esta función")
     import pandas as pd
-    from matplotlib.pyplot import grid, title
+    import matplotlib.pyplot as plt
 
     precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
-    fig_precios_diarios = precios_diarios.plot(x = 'fecha', y = 'precio', xlabel = 'fecha', ylabel = 'precio', kind = 'line', figsize = (16,8), grid = True, title = 'Promedios Diarios').get_figure()
-    fig_precios_diarios.savefig('data_lake/business/reports/figures/daily_prices.png')
+    precios_diarios['fecha'] = pd.to_datetime(precios_diarios['fecha'])
+    x = precios_diarios.fecha
+    y = precios_diarios.precio
+    plt.figure(figsize=(16, 8))
+    plt.plot(x, y, 'g', label='Promedios Diarios')
+    plt.xlabel('Fecha')
+    plt.ylabel('Precio en bolsa')
+    plt.title('Promedios Diarios')
+    plt.legend()
+    plt.savefig('data_lake/business/reports/figures/daily_prices.png')
 
 if __name__ == "__main__":
     import doctest
