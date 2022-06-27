@@ -26,18 +26,18 @@ def clean_data():
     import os
     import pandas as pd
 
-    contenido_raw = os.listdir('src/data/data_lake/raw')
+    contenido_raw = os.listdir('data_lake/raw')
     anio_inicial = 1995
     anio_final = 2021
 
-    archivo_inicial = pd.read_csv(f'src/data/data_lake/raw/{anio_inicial}.csv')
+    archivo_inicial = pd.read_csv(f'data_lake/raw/{anio_inicial}.csv')
 
     for elemento in range(anio_inicial + 1, anio_final + 1, 1):
         if elemento == anio_inicial + 1:
-            archivo = pd.read_csv(f'src/data/data_lake/raw/{elemento}.csv')
+            archivo = pd.read_csv(f'data_lake/raw/{elemento}.csv')
             archivo_concat = pd.concat([archivo_inicial, archivo], ignore_index = True)
         else:
-            archivo = pd.read_csv(f'src/data/data_lake/raw/{elemento}.csv')
+            archivo = pd.read_csv(f'data_lake/raw/{elemento}.csv')
             archivo_concat = pd.concat([archivo_concat, archivo], ignore_index = True)
 
     archivo_concat.columns = ['fecha', '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
@@ -46,7 +46,7 @@ def clean_data():
     archivo_concat_melt = archivo_concat_melt.sort_values(by=['fecha', 'hora'])
     archivo_concat_melt = archivo_concat_melt[archivo_concat_melt['fecha'].notnull()]
 
-    archivo_concat_melt.to_csv(f'src/data/data_lake/cleansed/precios-horarios.csv', header = True, index = False)
+    archivo_concat_melt.to_csv(f'data_lake/cleansed/precios-horarios.csv', header = True, index = False)
 
 
 if __name__ == "__main__":
