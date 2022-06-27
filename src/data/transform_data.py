@@ -61,5 +61,5 @@ def transform_data():
 
 if __name__ == "__main__":
     import doctest
-
+    transform_data()
     doctest.testmod()

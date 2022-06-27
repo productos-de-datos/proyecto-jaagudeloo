@@ -35,5 +35,5 @@ def compute_monthly_prices():
 
 if __name__ == "__main__":
     import doctest
-
+    compute_monthly_prices()
     doctest.testmod()
