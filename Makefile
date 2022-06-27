@@ -5,6 +5,7 @@
 .PHONY: compute_daily_prices
 .PHONY: pipeline
 .PHONY: make_daily_prices_plot
+.PHONY: make_monthly_prices_plot
 .PHONY: make_features
 .PHONY: train_model
 
@@ -33,6 +34,9 @@ pipeline:
 
 make_daily_prices_plot:
 	python3 src/visualization/make_daily_prices_plot.py
+
+make_monthly_prices_plot:
+	python3 src/visualization/make_monthly_prices_plot.py
 
 make_features:
 	python3 src/features/make_features.py

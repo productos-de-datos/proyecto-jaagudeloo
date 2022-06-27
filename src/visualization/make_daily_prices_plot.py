@@ -31,6 +31,7 @@ def make_daily_prices_plot():
     plt.xlabel('Fecha')
     plt.ylabel('Precio en bolsa')
     plt.title('Promedios Diarios')
+    plt.grid()
     plt.legend()
     plt.savefig('data_lake/business/reports/figures/daily_prices.png')
 
