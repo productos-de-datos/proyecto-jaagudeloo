@@ -48,10 +48,6 @@ class ComputeDailyMonthly(Task):
         compute_monthly_prices.compute_monthly_prices()
 
 if __name__ == "__main__":
-
-    raise NotImplementedError("Implementar esta función")
-
-if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
