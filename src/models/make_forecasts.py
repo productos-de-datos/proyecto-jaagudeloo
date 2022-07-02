@@ -25,8 +25,8 @@ def make_forecasts():
     #raise NotImplementedError("Implementar esta función")
 
     import pandas as pd
-    from sklearn.ensemble import RandomForestRegressor
-    from skforecast.ForecasterAutoreg import ForecasterAutoreg
+    #from sklearn.ensemble import RandomForestRegressor
+    #from skforecast.ForecasterAutoreg import ForecasterAutoreg
 
     precios_diarios = pd.read_csv('data_lake/business/features/precios_diarios.csv')
     precios_diarios['fecha'] = pd.to_datetime(precios_diarios['fecha'], format='%Y-%m-%d')

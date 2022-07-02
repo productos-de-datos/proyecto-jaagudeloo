@@ -48,7 +48,7 @@ def train_daily_model():
     enforce_invertibility = False,
     )
 
-    model = forecaster.fit()
+    model = forecaster.fit(disp=0)
     pickle.dump(model, open('src/models/precios-diarios.pkl', 'wb'))
 
 if __name__ == "__main__":
