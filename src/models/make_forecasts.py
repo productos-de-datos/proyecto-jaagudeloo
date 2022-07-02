@@ -44,7 +44,9 @@ def make_forecasts():
 
     data_train, data_test = test_train_datasets_1(precios_diarios, 0.3)
 
-    estimador =  pickle.load('/src/models/precios-diarios.pkl', 'rb')
+    with open('src/models/precios-diarios.pkl', 'rb') as file:
+        estimador = pickle.load(file)
+    #estimador =  pickle.load('src/models/precios-diarios.pkl', 'rb')
     
     pasos = len(data_test)
 
