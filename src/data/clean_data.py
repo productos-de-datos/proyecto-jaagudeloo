@@ -48,6 +48,7 @@ def clean_data():
 
     archivo_concat_melt.to_csv(f'data_lake/cleansed/precios-horarios.csv', header = True, index = False)
 
+    return 'melo'
 
 if __name__ == "__main__":
     import doctest
