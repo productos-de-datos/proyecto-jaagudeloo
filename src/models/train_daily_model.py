@@ -49,7 +49,7 @@ def train_daily_model():
     )
 
     model = forecaster.fit()
-    pickle.dump(model, open('precios-diarios.pkl', 'wb'))
+    pickle.dump(model, open('src/models/precios-diarios.pkl', 'wb'))
 
 if __name__ == "__main__":
     import doctest
