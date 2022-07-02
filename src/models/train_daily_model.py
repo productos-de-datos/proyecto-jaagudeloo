@@ -30,7 +30,7 @@ def train_daily_model():
     import pandas as pd
     import statsmodels.api as st
 
-    precios_diarios = pd.read_csv('src/data/data_lake/business/features/precios_diarios.csv')
+    precios_diarios = pd.read_csv('data_lake/business/features/precios_diarios.csv')
     precios_diarios['fecha'] = pd.to_datetime(precios_diarios['fecha'], format='%Y-%m-%d')
     precios_diarios['dia_mes'] = pd.to_numeric(precios_diarios['dia_mes'])
     precios_diarios = precios_diarios.set_index('fecha')
@@ -48,8 +48,8 @@ def train_daily_model():
     enforce_invertibility = False,
     )
 
-    model = forecaster.fit(disp=0)
-    pickle.dump(model, open('src/models/precios-diarios.pkl', 'wb'))
+    model = forecaster.fit()
+    pickle.dump(model, open('../models/precios-diarios.pkl', 'wb'))
 
 if __name__ == "__main__":
     import doctest
