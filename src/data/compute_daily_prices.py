@@ -1,12 +1,14 @@
 """
 Módulo de cálculo de precios promedio diarios.
 -------------------------------------------------------------------------------
-En este módulo se toma el archivo precios-horarios.csv, con la finalidad de obtener por cada día el precio
-promedio que tuvo la electricidad en la bolsa nacional.
+En este módulo se toma el archivo precios-horarios.csv, con la finalidad de obtener
+por cada día el precio promedio que tuvo la electricidad en la bolsa nacional.
 
 >>> compute_daily_prices()
 
 """
+
+import pandas as pd
 
 def compute_daily_prices():
     """Compute los precios promedios diarios.
@@ -23,12 +25,14 @@ def compute_daily_prices():
 
     """
     #raise NotImplementedError("Implementar esta función")
-    import pandas as pd
 
-    precios_horarios = pd.read_csv(f'data_lake/cleansed/precios-horarios.csv')
+    precios_horarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
     precios_diarios = precios_horarios.groupby('fecha').mean()
     precios_diarios_sin_hora = precios_diarios.drop(['hora'], axis=1)
-    precios_diarios_sin_hora.to_csv(f'data_lake/business/precios-diarios.csv', header = True, index = True)
+    precios_diarios_sin_hora.to_csv(
+                                    'data_lake/business/precios-diarios.csv',
+                                     header = True, index = True
+                                     )
 
     return 'melo'
 
