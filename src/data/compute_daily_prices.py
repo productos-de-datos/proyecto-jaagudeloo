@@ -34,9 +34,6 @@ def compute_daily_prices():
                                      header = True, index = True
                                      )
 
-    return 'melo'
-
-
 if __name__ == "__main__":
     import doctest
     compute_daily_prices()
