@@ -30,6 +30,8 @@ def compute_daily_prices():
     precios_diarios_sin_hora = precios_diarios.drop(['hora'], axis=1)
     precios_diarios_sin_hora.to_csv(f'data_lake/business/precios-diarios.csv', header = True, index = True)
 
+    return 'melo'
+
 
 if __name__ == "__main__":
     import doctest

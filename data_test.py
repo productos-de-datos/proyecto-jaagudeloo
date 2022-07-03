@@ -1,5 +1,5 @@
-from src.data.clean_data import clean_data
+from src.data.compute_daily_prices import compute_daily_prices
 
-def clean_data_test():
-    palabra = clean_data()
+def compute_daily_prices():
+    palabra = compute_daily_prices()
     assert palabra == 'melo'
