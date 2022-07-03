@@ -34,16 +34,6 @@ def create_data_lake():
 
     import os
 
-    #os.mkdir('data_lake', exist_ok=True)
-    #os.mkdir('data_lake/landing', exist_ok=True)
-    #os.mkdir('data_lake/raw', exist_ok=True)
-    #os.mkdir('data_lake/cleansed', exist_ok=True)
-    #os.mkdir('data_lake/business', exist_ok=True)
-    #os.mkdir('data_lake/business/reports', exist_ok=True)
-    #os.mkdir('data_lake/business/reports/figures', exist_ok=True)
-    #os.mkdir('data_lake/business/features', exist_ok=True)
-    #os.mkdir('data_lake/business/forecasts', exist_ok=True)
-
     os.mkdir('data_lake')
     os.mkdir('data_lake/landing')
     os.mkdir('data_lake/raw')
@@ -56,5 +46,5 @@ def create_data_lake():
 
 if __name__ == "__main__":
     import doctest
-
+    create_data_lake()
     doctest.testmod()
